@@ -1,0 +1,114 @@
+<div class="jumbotron text-center jumbotron-fluid height100p banner" id="home">
+    <div class="container h100">
+        <div class="contentBox h100">
+            <div>
+                <h1>Let's Increase Your Productivity </h1>
+                <h3>____" 1-3-5 " RULE ____</h3>
+                <p>We Only have 24 hours per a day, no more no less.
+                    But so many tasks waiting for been accomplish. 
+                    With 1-3-5 list means _ Frist, Only pick One Big and 
+                    Important thing. <br> Second, Pick Three Medium and Less crucial things. <br> And Last, Write Five Small and much less important things. <br> At the End Unless you will have fulfilled 4 Task, See How Good and easy it is. <br> 
+                    What will you waitting for, Let's Do IT ...  
+                </p>
+            </div>
+            <div>
+                <a class="btn btn-primary" [routerLink]="['/register']">Register</a>
+                <a class="btn btn-default" [routerLink]="['/login']">Login</a>
+            </div>
+        </div>
+    </div>     
+</div>
+<section class="sec1">
+    <div class="container">
+        <!-- <div class="row">
+           emty for now            
+        </div> -->
+
+        <div class="row">
+          <div class="col mx-auto">
+            <form #form="ngForm"  (submit)="onAddToDoSubmit()" class="card" style="width: 100%; background-color:floralwhite;" novalidate>
+              <h1>Today, I WILL DO ...</h1>
+              <div class="form-group" [class.has-error]= "oneBigest.invalid && oneBigest.touched" >
+                <label class="control-label">(Step 1) What's Bigest To Do</label>
+                <input #oneBigest="ngModel" required type="text" class="form-control" name="oneBigest" [(ngModel)]="model.oneBigest">
+                <div *ngIf="oneBigest.invalid && oneBigest.touched" class="alert alert-danger">Please write your Bigest thing to do</div>
+              </div>
+              <div class="form-group">
+                  <label>(Step 2) What's Three Medium To Do</label>
+                  <input required type="text" class="form-control" name="med_1" [(ngModel)]="model.med_1">
+                  <div *ngIf="oneBigest.invalid && oneBigest.touched" class="alert alert-danger">Please write your Frist Medium thing to do</div>
+
+                  <input required type="text" class="form-control" name="med_2" [(ngModel)]="model.med_2">
+                  <div *ngIf="oneBigest.invalid && oneBigest.touched" class="alert alert-danger">Please write your Second Medium thing to do</div>
+
+                  <input required type="text" class="form-control" name="med_3" [(ngModel)]="model.med_3">
+                  <div *ngIf="oneBigest.invalid && oneBigest.touched" class="alert alert-danger">Please write your Third Medium thing to do</div>
+              </div>
+              <div class="form-group">
+                  <label>(Step 3) What's Five Little ToDo (option)</label>
+                  <input type="text" class="form-control" name="sml_1" [(ngModel)]="model.sml_1">
+                  <input type="text" class="form-control" name="sml_2" [(ngModel)]="model.sml_2">
+                  <input type="text" class="form-control" name="sml_3" [(ngModel)]="model.sml_3">
+                  <input type="text" class="form-control" name="sml_4" [(ngModel)]="model.sml_4">
+                  <input type="text" class="form-control" name="sml_5" [(ngModel)]="model.sml_5">
+              </div>
+             <!-- <div class="col-sm-4">
+                <div class="input-group mb-3">
+                    <input  #newToDo (keyup.enter)="addToDo(newToDo.value)" (blur)="addToDo(newToDo.value); newToDo.value='' "  required type="text"  class="form-control" placeholder="Add One Bigest TODO" aria-label="Add One Bigest Thing" aria-describedby="button-addon2"  name="bigesttodo" ngModel>
+                    <div class="input-group-append">
+                      <button  (click)="addToDo(newToDo.value)" class="btn btn-danger" type="button" id="button-addon2">Add</button>
+                    </div>
+
+                  </div>
+             </div>
+             <div class="col-sm-4">
+                <div class="input-group mb-3">
+                    <input #newMed (keyup.enter)="AddMed(newMed.value)" (blur)="AddMed(newMed.value); newMed.value='' " type="text" class="form-control" placeholder="Add Three Medium TODO" aria-label="Add Medium Things" aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                      <button class="btn btn-warning" (click)="AddMed(newMed.value)" type="button" id="button-addon2">Add</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="input-group mb-3">
+                        <input #newFiveThings (keyup.enter)="AddFiveThings(newFiveThings.value)" (blur)="AddFiveThings(newFiveThings.value); newFiveThings.value='' " type="text" class="form-control" placeholder="Add Five Little TODO" aria-label="Add Five Little Things" aria-describedby="button-addon2">
+                        <div class="input-group-append">
+                          <button class="btn btn-info" type="button" id="button-addon2">Add</button>
+                        </div>
+                      </div>
+                </div> -->
+                <button class="btn btn-primary" type="submit"
+                 [disabled]="form.invalid">Add ToDo</button> 
+              </form>
+            </div>
+        </div>
+      <!-- Model: {{model | json}} 
+      <br> 
+      Angular: {{form.value | json}}
+
+      <h3> Class Name </h3>
+      <h4>{{oneBigest.invalid}}</h4> -->
+
+<!-- Show List -->
+
+        <div class="row">
+                <div class="col-sm-4">
+                     <ul class="list-group">
+                         <li class="list-group-item list-group-item-danger" *ngFor="let OneToDo of AddOneToDo">{{OneToDo}}</li>
+                     </ul>
+                </div>
+                <div class="col-sm-4">
+                     <ul class="list-group">
+                         <li class="list-group-item list-group-item-warning" *ngFor="let med of addMeds">{{med}}</li>
+                     </ul>
+                </div>
+                <div class="col-sm-4">
+                        <ul class="list-group">
+                            <li class="list-group-item list-group-item-info" *ngFor="let fivethings of addFiveThings">{{fivethings}}</li>
+                        </ul>
+                </div>
+        </div>
+    </div>
+
+</section>
+

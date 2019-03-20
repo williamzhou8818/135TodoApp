@@ -1,5 +1,5 @@
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
          <div class="container">
             <a class="navbar-brand" href="#">Navbar</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,34 +8,27 @@
           
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav ml-lg-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
+                <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+                  <a  class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <!-- <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Treatments
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="#">Traditional Thai</a>
-                          <a class="dropdown-item" href="#">Deep Tissue</a>
-                          <a class="dropdown-item" href="#">Relaxation Massage</a>
-                          <a class="dropdown-item" href="#">Combination</a>
-                          <a class="dropdown-item" href="#">Aromatherapy Oil</a>
-                          <a class="dropdown-item" href="#">Reflexology-Foot</a>
-                        </div>
-                      </li> -->
+                
                 <li class="nav-item">
                         <a class="nav-link" routerLink="tasks">Tasks</a>
                 </li>
-                <!-- <li class="nav-item">
-                        <a class="nav-link" href="#OurTeam">Our Team</a>
-                </li> -->
-                <!-- <li class="nav-item">
-                        <a class="nav-link" href="#Gifts">Gift Vouchers</a>
-                </li> -->
                 <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
                         <!-- DropDwon menu Make online Booking so on  -->
+                </li>
+                <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+                  <a  class="nav-link" routerLink="login">Login</a>
+                  <!-- DropDwon menu Make online Booking so on  -->
+                </li>
+                <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+                  <a  class="nav-link" routerLink="register">register</a>
+                  <!-- DropDwon menu Make online Booking so on  -->
+                </li>
+                <li class="nav-item">
+                    <a  class="nav-link" (click)="onLogoutClick()">LogOut</a>
                 </li>
               </ul>  
             </div>

@@ -1,14 +1,11 @@
 let mongoose = require('mongoose');
+const config  = require('./../config/database');
 
-mongoose.connect('mongodb://localhost/todoAPI');
+mongoose.connect(config.database);
+const Schema = mongoose.Schema;
 
 let TodoSchema = new mongoose.Schema({
-    // name: String,
-    // email: {
-    //     type: String,
-    //     required: true,
-    //     unique: true
-    // },
+    _id: Schema.Types.ObjectId,
     tOne: String,
     tMed_1: String,
     tMed_2: String,
@@ -18,7 +15,12 @@ let TodoSchema = new mongoose.Schema({
     tSmall_3: String,
     tSmall_4: String,
     tSmall_5: String,
-    date: { type: Date, default: Date.now }
+    date: { type: Date, default: Date.now },
+    byuser:  { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
+
 })
 
-module.exports = mongoose.model('todoDatas', TodoSchema)
+const todoDatas = module.exports = mongoose.model('todoDatas', TodoSchema);
+
+
+

@@ -1,0 +1,58 @@
+<!-- <div class="page-header"></div>
+<div *ngIf="todos">
+{{todos.bigestone}}
+
+</div> -->
+<!-- improve ui for register and todo post -->
+<!-- note : need create update / delect router for todo list  -->
+<!-- Change edit button  -->
+
+
+<div *ngIf="todos">
+  <h2 class="page-header">1-3-5 To Do List</h2>
+  <div class="color-info">
+    <p>Bigest Thing<button class="btn list-group-item-danger"></button></p>
+    <p>Medium Things<button class="btn list-group-item-warning"></button></p>
+    <p>Little Things<button class="btn list-group-item-info"></button></p>
+  </div>
+
+  
+<!-- Need Filter allow to searching   -->
+<!-- <input type="text">  -->
+  <ul class="list-group mx-auto">
+    <div class="row">
+      <div class="col-6">
+          <li class="list-group-item">
+              Create Date: {{todos.createdOn | date}}
+          </li>
+      </div>
+        <div class="col-4">
+            <div class="input-group">
+                <div class="input-group-append">
+                  <button type="button" class="btn btn-outline-secondary"><i class="fas fa-cogs"></i></button>
+                  <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only">Toggle Dropdown</span>
+                  </button>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Edit</a>
+                    <div role="separator" class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Delete</a>
+                  </div>
+                </div>
+              </div>  
+        </div>
+    </div>
+
+       
+    <li class="list-group-item list-group-item-danger">{{todos.bigestone}}</li>
+    <li class="list-group-item list-group-item-warning">{{todos.medone}}</li>
+    <li class="list-group-item list-group-item-warning">{{todos.medtwo}}</li>
+    <li class="list-group-item list-group-item-warning">{{todos.medthree}}</li>
+    <li class="list-group-item list-group-item-info">{{todos.smlone}}</li>
+    <li class="list-group-item list-group-item-info">{{todos.smltwo}}</li>
+    <li class="list-group-item list-group-item-info">{{todos.smlthree}}</li>
+    <li class="list-group-item list-group-item-info">{{todos.smlfour}}</li>
+    <li class="list-group-item list-group-item-info">{{todos.smlfive}}</li>
+  </ul>
+  <ul></ul>
+</div> 

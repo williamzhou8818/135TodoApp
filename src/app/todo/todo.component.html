@@ -1,5 +1,63 @@
-<ul class="list-group">
-  <li class="list-item">
-    {{name}}
-  </li>
-</ul>
+<div class="container">
+  <div class="row color-dark">
+        <div class="col-sm-6">
+          <p>Create Your Todo List Below</p>
+        </div>
+        <div class="col-sm-6">
+          <p>Your Todo List</p>
+        </div>
+  </div>
+  <div class="row color-light">
+      <div class="col-sm-6">
+          <p class="sm"></p>
+          <form>
+            <div *ngIf="displayInputBigTodo">
+                <input type="text" class="txt" name="oneBigThing" placeholder="Enter One Bigest Things Todo " [(ngModel)]="oneBigThing" (keyup.enter)="addOneBigThing()">
+                <span> ({{lengthforBigTodo}}/{{setMaxBigTodo}})</span>
+            </div>
+           
+            <div *ngIf="displayInputMedTodo">
+                <input type="text" class="txt" name="medThing" placeholder="Enter Three Medium Thing Todo " [(ngModel)]="medTodoString" (keyup.enter)="addMedTodo()"> 
+                <span> ({{lengthforMedTodo}}/{{setMaxMedTodo}})</span>
+            </div>
+
+            <div *ngIf="displayInputSmlTodo">
+                <input type="text" class="txt" name="smlThing" placeholder="Enter Five Little ToDo " [(ngModel)]="smlTodoString" (keyup.enter)="addSmlTodo()">
+                <span> ({{lengthforSmlTodo}}/{{setMaxSmlTodo}})</span>
+            </div>
+
+            <!-- <input type="submit" class="btn"  value="Add Item"> -->
+          </form>
+        </div>
+        <div class="col-sm-6">
+            <div class="life-container" *ngFor="let bigestone of bigTodos ">
+                  <input type="checkbox" [(ngModel)]="bigestone.completed">
+                  <div class="todo-item-label" [ngClass]="{'completed': bigestone.completed }">{{bigestone.bigestone }}</div>
+                  <div  class="remove-item" (click)="deleteTodo(bigestone._id)">&times;</div>
+                  <!-- need get _id form post respone id: _id and put here -->
+            </div>  
+            
+            <div class="life-container-med" *ngFor="let medtodo of medTodos">
+                <input type="checkbox" [(ngModel)]="medtodo.completed">
+                <div class="todo-item-label" [ngClass]="{'completed':medtodo.completed }">{{medtodo.medtodo}}</div>
+                <div  class="remove-item"  (click)="deleteMedTodo(medtodo._id)">&times;</div>
+          </div> 
+          
+          <div class="life-container-sml"  *ngFor="let smltodo of smlTodos">
+              <input type="checkbox" [(ngModel)]="smltodo.completed">
+              <div class="todo-item-label" [ngClass]="{'completed': smltodo.completed }">{{smltodo.smltodo}}</div>
+              <div  class="remove-item"  (click)="deleteSmlTodo(smltodo._id)">&times;</div>
+        </div> 
+
+
+
+        </div>
+  </div>
+</div>
+  
+<!-- <div *ngFor="let todo of todos">
+    Todo Big Title  {{todo.oneBigThingTitle}} <br>
+    Todo MED Title {{ todo.MedThingTitle}} <br/>
+    Todo SML  Title {{ todo.SmlThingTitle}} <br/>
+
+</div> -->
